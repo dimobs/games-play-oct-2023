@@ -1,6 +1,6 @@
 import * as request from "../lib/request";
 
-const baseUrl = 'http://localhost:3030/data/games'
+const baseUrl = 'http://localhost:3030/jsonstore/games'
 
 export const getAll = async () => {
     const result = await request.get(baseUrl);
@@ -24,8 +24,10 @@ export const getLatest = async () => {
     const query = encodeURIComponent(`offset=0&pageSize=3`);
     console.log(query);
     const result = await request.get(`${baseUrl}?sortBy=_createdOn%20desc&${query}`);
-
-    return result;
+    const data = Object.entries(result);
+    // console.log(data, 'gameService.js');
+    
+    return data;
 }
 
 export const create = async (gameData) => {

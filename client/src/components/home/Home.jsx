@@ -14,7 +14,8 @@ function Home({
         gameService.getLatest()
             .then(result => setLatestGames(result));
     }, [])
-
+    latestGames.map(x => console.log(x[1]))
+    
     return (
         <section id="welcome-world">
 
@@ -25,9 +26,8 @@ function Home({
             <img src="./images/four_slider_img01.png" alt="hero" />
 
             <div id="home-page">
-                <h1>Latest Games</h1>
 
-                {latestGames.map(game => <LatestGame {...game} />)}
+                {latestGames.map(game => <LatestGame key={game[1]._id} {...game[1]} />)}
 
                 {!latestGames.length && <p className="no-articles">No games yet</p>}
 

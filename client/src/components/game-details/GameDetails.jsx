@@ -11,10 +11,10 @@ import Path from "../../paths";
 
 export default function GameDetails() {
     const navigate = useNavigate();
+    const { gameId } = useParams();
     const { email, userId } = useContext(AuthContext);
     const [game, setGame] = useState({});
     const [comments, dispatch] = useReducer(reducer, []);
-    const { gameId } = useParams();
 
     useEffect(() => {
         gameService.getOne(gameId)
