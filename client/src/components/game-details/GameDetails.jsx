@@ -18,6 +18,8 @@ export default function GameDetails() {
     const [comments, dispatch] = useReducer(reducer, []);
 
     useEffect(() => {
+
+        
         gameService.getOne(gameId)
             .then(setGame);
 
