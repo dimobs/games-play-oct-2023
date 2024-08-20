@@ -17,8 +17,6 @@ export function useGetAllGames() {
 
 export function useGetOneGames (gameId) {
     const [game, setGame] = useState({});
-    console.log('runiing fetch');
-    
     useEffect(() => {
      (async() => {
         try {

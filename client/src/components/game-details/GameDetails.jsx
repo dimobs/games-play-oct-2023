@@ -8,12 +8,13 @@ import reducer from './commentReducer';
 import useForm from '../../hooks/useForm';
 import { pathToUrl } from "../../utils/pathUtils";
 import Path from "../../paths";
+import { useGetOneGames } from "../../hooks/useGames";
 
 export default function GameDetails() {
     const navigate = useNavigate();
     const { gameId } = useParams();
     const { email, userId } = useContext(AuthContext);
-    const [game, setGame] = useState({});
+    const [game, setGame] = useGetOneGames(gameId);
     const [comments, dispatch] = useReducer(reducer, []);
 
     useEffect(() => {

@@ -4,8 +4,9 @@ const baseUrl = 'http://localhost:3030/jsonstore/games'
 
 export const getAll = async () => {
     const result = await request.get(baseUrl);
+    const data = Object.entries(result);
 
-    return result;
+    return data;
 };
 
 export const getOne = async (gameId) => {

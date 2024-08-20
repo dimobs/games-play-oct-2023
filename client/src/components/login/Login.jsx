@@ -8,6 +8,7 @@ const LoginFormKyes = {
 };
 
 export default function Login() {
+    // loginSubmitHandler == values
     const { loginSubmitHandler } = useContext(AuthContext);
     const { values, onChange, onSubmit } = useForm(loginSubmitHandler, {
         [LoginFormKyes.Email]: '',
